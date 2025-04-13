@@ -1,17 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { assets } from "../assets/assets";
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
-      <NavLink to="/">EBW</NavLink>
+      <NavLink to="/" className="flex items-center justify-center gap-2">
+        <img className="h-8 rounded" src={assets.logo} alt="dummyLogoColored" />
+        <p className="text-[#] tracking-widest">EBW</p>
+      </NavLink>
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/products">All Product</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
 
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
           <input
@@ -54,17 +58,17 @@ const Navbar = () => {
           >
             <path
               d="M.583.583h2.333l1.564 7.81a1.17 1.17 0 0 0 1.166.94h5.67a1.17 1.17 0 0 0 1.167-.94l.933-4.893H3.5m2.333 8.75a.583.583 0 1 1-1.167 0 .583.583 0 0 1 1.167 0m6.417 0a.583.583 0 1 1-1.167 0 .583.583 0 0 1 1.167 0"
-              stroke="#615fff"
+              stroke="#fc0"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
           </svg>
-          <button className="absolute -top-2 -right-3 text-xs text-white bg-indigo-500 w-[18px] h-[18px] rounded-full">
+          <button className="absolute -top-2 -right-3 text-xs text-white bg-primary w-[18px] h-[18px] rounded-full">
             3
           </button>
         </div>
 
-        <button className="cursor-pointer px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full">
+        <button className="cursor-pointer px-8 py-2 bg-primary hover:bg-secondary transition text-white rounded-full">
           Login
         </button>
       </div>
