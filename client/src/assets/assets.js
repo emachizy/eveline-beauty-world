@@ -17,6 +17,11 @@ import product1_img4 from "../assets/product1_img4.jpg";
 import star_icon from "../assets/star_icon.png";
 import star_dull_icon from "../assets/star_dull_icon.png";
 import bottom_banner_img from "../assets/bottom-banner-img.jpg";
+import bottom_banner_img_mobile from "../assets/bottom-banner-img-mobile.jpg";
+import delivery_truck_icon from "../assets/delivery-truck-icon.png";
+import leaf_icon from "../assets/leaf-icon.png";
+import coin_icon from "../assets/coin_icon.png";
+import trust_icon from "../assets/trust-icon.png";
 
 export const assets = {
   logo,
@@ -31,6 +36,7 @@ export const assets = {
   star_icon,
   star_dull_icon,
   bottom_banner_img,
+  bottom_banner_img_mobile,
 };
 
 export const categories = [
@@ -138,5 +144,61 @@ export const dummyProducts = [
     createdAt: "2025-04-25T07:17:46.018Z",
     updatedAt: "2025-04-25T07:18:18.103Z",
     inStock: true,
+  },
+];
+
+export const features = [
+  {
+    icon: delivery_truck_icon,
+    title: "Fastest delivery in th game",
+    description: "We deliver your products in 24 hours",
+  },
+  {
+    icon: leaf_icon,
+    title: "Fresh and organic products",
+    description: "Our products are made from natural ingredients",
+  },
+  {
+    icon: coin_icon,
+    title: "Affordable Prices",
+    description: "We offer the best prices in the market",
+  },
+  {
+    icon: trust_icon,
+    title: "Trusted by thousands",
+    description: "Our customers trust us for their shopping needs",
+  },
+];
+
+export const footerLinks = [
+  {
+    title: "Quick Links",
+    links: [
+      { text: "Home", url: "#" },
+      { text: "Best Sellers", url: "#" },
+      { text: "Offers and Deals", url: "#" },
+      { text: "Contact Us", url: "#" },
+      { text: "FAQS", url: "#" },
+    ],
+  },
+  {
+    title: "Need help?",
+    links: [
+      { text: "Delivery Information", url: "#" },
+      { text: "Return and Refund Policy", url: "#" },
+      { text: "Payment Methods", url: "#" },
+      { text: "Track Order", url: "#" },
+      { text: "Contact Us", url: "#" },
+    ],
+  },
+  {
+    title: "Follow Us",
+    links: [
+      { text: "Facebook", url: "#" },
+      { text: "Instagram", url: "#" },
+      { text: "Twitter", url: "#" },
+      { text: "Tiktok", url: "#" },
+      { text: "YouTube", url: "#" },
+    ],
   },
 ];
