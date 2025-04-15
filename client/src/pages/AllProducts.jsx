@@ -36,7 +36,11 @@ const AllProducts = () => {
 
       {loading ? (
         <div className="flex justify-center items-center h-64 w-full">
-          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-indigo-500"></div>
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary"></div>
+        </div>
+      ) : filteredProduct.filter((product) => product.inStock).length === 0 ? (
+        <div className="text-center text-gray-500 mt-10 text-lg">
+          Your search doesn’t match any products.
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6 lg:grid-cols-5 mt-6">
