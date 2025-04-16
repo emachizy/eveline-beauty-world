@@ -140,7 +140,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd49g56h",
+    _id: "gd49g52h",
     name: "Soap",
     category: "effect",
     price: 10.99,
@@ -152,7 +152,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd49g56h",
+    _id: "gd49g59h",
     name: "Soap",
     category: "effect",
     price: 10.99,
@@ -164,7 +164,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd49g56h",
+    _id: "gd69g56h",
     name: "Soap",
     category: "effect",
     price: 10.99,
@@ -176,7 +176,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd49g56h",
+    _id: "gd49g16h",
     name: "Soap",
     category: "effect",
     price: 10.99,
@@ -188,7 +188,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd49g56h",
+    _id: "gd49g96h",
     name: "Soap",
     category: "effect",
     price: 10.99,
@@ -212,7 +212,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd44g67h",
+    _id: "gd44g87h",
     name: "Pedicure",
     category: "Feet",
     price: 10.99,
@@ -224,7 +224,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd44g67h",
+    _id: "gd44g27h",
     name: "Pedicure",
     category: "Feet",
     price: 10.99,
@@ -236,7 +236,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd44g67h",
+    _id: "gd44g37h",
     name: "Pedicure",
     category: "Feet",
     price: 10.99,
@@ -248,7 +248,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd44g67h",
+    _id: "gd14g97h",
     name: "Pedicure",
     category: "Feet",
     price: 10.99,
@@ -260,7 +260,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd44g67h",
+    _id: "gd34g57h",
     name: "Pedicure",
     category: "Feet",
     price: 10.99,
@@ -272,7 +272,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd44g67h",
+    _id: "gd64g47h",
     name: "Pedicure",
     category: "Feet",
     price: 10.99,
@@ -284,7 +284,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd48g45h",
+    _id: "gd49g55h",
     name: "Nail Care",
     category: "Nails",
     price: 10.99,
@@ -296,7 +296,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd48g45h",
+    _id: "gd41g46h",
     name: "Nail polish",
     category: "Nails",
     price: 10.99,
@@ -308,7 +308,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd48g45h",
+    _id: "gd42g91h",
     name: "Nail Care",
     category: "Nails",
     price: 10.99,
@@ -320,7 +320,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd48g45h",
+    _id: "gd78g15h",
     name: "Nail polish",
     category: "Nails",
     price: 10.99,
@@ -332,7 +332,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd48g45h",
+    _id: "gd28g46h",
     name: "Nail Care",
     category: "Nails",
     price: 10.99,
@@ -344,7 +344,7 @@ export const dummyProducts = [
     inStock: true,
   },
   {
-    _id: "gd48g45h",
+    _id: "gd18g39h",
     name: "Nail polish",
     category: "Nails",
     price: 10.99,
