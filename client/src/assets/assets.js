@@ -22,6 +22,9 @@ import delivery_truck_icon from "../assets/delivery-truck-icon.png";
 import leaf_icon from "../assets/leaf-icon.png";
 import coin_icon from "../assets/coin_icon.png";
 import trust_icon from "../assets/trust-icon.png";
+import menu_icon from "../assets/menu-icon.png";
+import remove_icon from "../assets/remove_icon.svg";
+import arrow_right_icon_colored from "../assets/arrow_right_icon_colored.svg";
 
 export const assets = {
   logo,
@@ -37,6 +40,9 @@ export const assets = {
   star_dull_icon,
   bottom_banner_img,
   bottom_banner_img_mobile,
+  menu_icon,
+  remove_icon,
+  arrow_right_icon_colored,
 };
 
 export const categories = [
@@ -404,5 +410,21 @@ export const footerLinks = [
       { text: "Tiktok", url: "#" },
       { text: "YouTube", url: "#" },
     ],
+  },
+];
+
+export const dummyAddress = [
+  {
+    _id: "67b5b9e54ea97f71bbc196a0",
+    userId: "67b5880e4d09769c5ca61644",
+    firstName: "Great",
+    lastName: "Stack",
+    email: "user.greatstack@gmail.com",
+    street: "Street 123",
+    city: "Main City",
+    state: "New State",
+    zipcode: 123456,
+    country: "IN",
+    phone: "1234567890",
   },
 ];

@@ -12,9 +12,9 @@ const Footer = () => {
             as our clients skin is the mirror which reflects our success.
           </p>
         </div>
-        <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">
+        <div className="md:flex flex-wrap justify-between w-full md:w-[45%] gap-5">
           {footerLinks.map((section, index) => (
-            <div key={index}>
+            <div key={index} className="mt-10">
               <h3 className="font-semibold text-base text-gray-900 md:mb-5 mb-2">
                 {section.title}
               </h3>
