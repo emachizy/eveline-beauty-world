@@ -44,7 +44,7 @@ const AddAddress = () => {
       <div className="flex flex-col-reverse md:flex-row justify-between mt-10">
         <div className="flex-1 max-w-md">
           <form onSubmit={onSubmitHandler} className="space-y-3 mt-6 text-sm">
-            <div>
+            <div className="grid grid-cols-2 gap-4">
               <InputField
                 handleChange={handleChange}
                 address={address}
@@ -60,6 +60,70 @@ const AddAddress = () => {
                 placeholder="Last Name"
               />
             </div>
+
+            <InputField
+              handleChange={handleChange}
+              address={address}
+              name="email"
+              type="email"
+              placeholder="Email Address"
+            />
+
+            <InputField
+              handleChange={handleChange}
+              address={address}
+              name="address"
+              type="text"
+              placeholder="Street"
+            />
+
+            <div className="grid grid-cols-2 gap-4">
+              <InputField
+                handleChange={handleChange}
+                address={address}
+                name="city"
+                type="text"
+                placeholder="City"
+              />
+
+              <InputField
+                handleChange={handleChange}
+                address={address}
+                name="state"
+                type="text"
+                placeholder="State"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <InputField
+                handleChange={handleChange}
+                address={address}
+                name="zipcode"
+                type="text"
+                placeholder="Zip code"
+              />
+
+              <InputField
+                handleChange={handleChange}
+                address={address}
+                name="country"
+                type="text"
+                placeholder="Country"
+              />
+            </div>
+
+            <InputField
+              handleChange={handleChange}
+              address={address}
+              name="phone"
+              type="text"
+              placeholder="Phone"
+            />
+
+            <button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary/75 transition cursor-pointer uppercase">
+              Save address
+            </button>
           </form>
         </div>
         <img
