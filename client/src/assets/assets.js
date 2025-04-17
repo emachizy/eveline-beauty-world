@@ -25,6 +25,7 @@ import trust_icon from "../assets/trust-icon.png";
 import menu_icon from "../assets/menu-icon.png";
 import remove_icon from "../assets/remove_icon.svg";
 import arrow_right_icon_colored from "../assets/arrow_right_icon_colored.svg";
+import add_address_image from "../assets/add_address_image.svg";
 
 export const assets = {
   logo,
@@ -43,6 +44,7 @@ export const assets = {
   menu_icon,
   remove_icon,
   arrow_right_icon_colored,
+  add_address_image,
 };
 
 export const categories = [
