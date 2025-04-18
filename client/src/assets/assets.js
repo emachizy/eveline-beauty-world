@@ -29,6 +29,8 @@ import add_address_image from "../assets/add_address_image.svg";
 import add_icon from "../assets/add_icon.svg";
 import order_icon from "../assets/order_icon.svg";
 import product_list_icon from "../assets/product_list_icon.svg";
+import upload_area from "../assets/upload_area.png";
+import box_icon from "../assets/box_icon.svg";
 
 export const assets = {
   logo,
@@ -51,6 +53,8 @@ export const assets = {
   order_icon,
   add_icon,
   product_list_icon,
+  upload_area,
+  box_icon,
 };
 
 export const categories = [
@@ -425,9 +429,9 @@ export const dummyAddress = [
   {
     _id: "67b5b9e54ea97f71bbc196a0",
     userId: "67b5880e4d09769c5ca61644",
-    firstName: "Great",
-    lastName: "Stack",
-    email: "user.greatstack@gmail.com",
+    firstName: "Emmanuel",
+    lastName: "Nwankwo",
+    email: "user.emtech@gmail.com",
     street: "Street 123",
     city: "Main City",
     state: "New State",
@@ -459,6 +463,39 @@ export const dummyOrders = [
   },
   {
     _id: "67e258798f87e633667863f2",
+    userId: "67b5880e4e09769c5ca61644",
+    items: [
+      {
+        product: dummyProducts[0],
+        quantity: 1,
+        _id: "67e258798f87e633667861f3",
+      },
+      {
+        product: dummyProducts[1],
+        quantity: 1,
+        _id: "67e258798f87e633667563f4",
+      },
+      {
+        product: dummyProducts[1],
+        quantity: 1,
+        _id: "67e258798f87e673667563f4",
+      },
+      {
+        product: dummyProducts[1],
+        quantity: 1,
+        _id: "67e358798f87e673667563f4",
+      },
+    ],
+    amount: 43,
+    address: dummyAddress[0],
+    status: "Order Placed",
+    paymentType: "COD",
+    isPaid: false,
+    createdAt: "2025-03-25T07:17:13.068Z",
+    updatedAt: "2025-03-25T07:17:13.068Z",
+  },
+  {
+    _id: "67e258728f87e633667863f2",
     userId: "67b5880e4d09769c5ca61644",
     items: [
       {
