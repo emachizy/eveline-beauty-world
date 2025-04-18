@@ -26,6 +26,9 @@ import menu_icon from "../assets/menu-icon.png";
 import remove_icon from "../assets/remove_icon.svg";
 import arrow_right_icon_colored from "../assets/arrow_right_icon_colored.svg";
 import add_address_image from "../assets/add_address_image.svg";
+import add_icon from "../assets/add_icon.svg";
+import order_icon from "../assets/order_icon.svg";
+import product_list_icon from "../assets/product_list_icon.svg";
 
 export const assets = {
   logo,
@@ -45,6 +48,9 @@ export const assets = {
   remove_icon,
   arrow_right_icon_colored,
   add_address_image,
+  order_icon,
+  add_icon,
+  product_list_icon,
 };
 
 export const categories = [
