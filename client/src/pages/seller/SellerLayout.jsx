@@ -9,10 +9,10 @@ const SellerLayout = () => {
     { name: "Add Product", path: "/seller", icon: assets.add_icon },
     {
       name: "Product List",
-      path: "/product-list",
+      path: "product-list",
       icon: assets.product_list_icon,
     },
-    { name: "Orders", path: "/orders", icon: assets.order_icon },
+    { name: "Orders", path: "orders", icon: assets.order_icon },
   ];
 
   const logout = async () => {
@@ -33,7 +33,7 @@ const SellerLayout = () => {
           <p>Hi! Admin</p>
           <button
             onClick={logout}
-            className="border rounded-full text-sm px-4 py-1"
+            className="border rounded-full text-sm px-4 py-1 cursor-pointer"
           >
             Logout
           </button>

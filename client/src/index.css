@@ -10,3 +10,7 @@
   --color-primary: #050;
   --color-secondary: #fc0;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
