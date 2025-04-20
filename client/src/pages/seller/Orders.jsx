@@ -41,7 +41,7 @@ const Orders = () => {
               </div>
             </div>
 
-            <div className="text-sm md:text-base text-black/60">
+            <div className="text-sm md:text-base text-black/60 md:max-lg:text-xs">
               <p className="text-black/80">
                 {order.address.firstName} {order.address.lastName}
               </p>

@@ -1,0 +1,39 @@
+# === General ===
+*.log
+.DS_Store
+Thumbs.db
+
+# === Node Modules ===
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# === Build output ===
+dist/
+build/
+client/dist/
+server/dist/
+
+# === Environment variables ===
+.env
+.env.*
+client/.env
+server/.env
+
+# === IDEs & Editors ===
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# === OS specific ===
+*.swp
+*.tmp
+
+# === Testing ===
+coverage/
+
+# === Optional lock files (uncomment if not needed) ===
+# yarn.lock
+# package-lock.json
+# pnpm-lock.yaml
