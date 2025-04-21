@@ -9,7 +9,9 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 // Connect to DB
-await connectDB();
+(async () => {
+  await connectDB();
+})();
 
 // Middleware
 app.use(express.json()); // ✅ Parses JSON bodies

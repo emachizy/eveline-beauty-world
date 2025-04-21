@@ -5,10 +5,12 @@ import jwt from "jsonwebtoken";
 // Register user:/api/user/register
 export const register = async (req, res) => {
   try {
+    // console.log("Headers:", req.headers);
+
     console.log("Received body:", req.body);
     const { name, email, password } = req.body || {};
 
-    if (!name || !email || password) {
+    if (!name || !email || !password) {
       return res.json({ success: false, message: "Missing Details" });
     }
 
@@ -38,4 +40,42 @@ export const register = async (req, res) => {
     console.log(error.message);
     return res.json({ success: false, message: error.message });
   }
+};
+
+// User login : /api/user/login
+
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body || {};
+
+    if (!email || !password) {
+      return res.json({
+        success: false,
+        message: "Email and password are required",
+      });
+    }
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.json({ success: false, message: "Invalid email or password" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.json({ success: false, message: "Invalid email or password" });
+    }
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    res.cookie("token", token, {
+      httpOnly: true, // The cookie is accessible only to the web server. Not to the client.
+      secure: process.env.NODE_ENV === "production", // The cookie is sent over a secure protocol (HTTPS).
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+  } catch (error) {}
 };
