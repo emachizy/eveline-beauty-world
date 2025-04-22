@@ -1,6 +1,6 @@
 // Update user CartData : /api/cart/update
 
-import User from "../models/User";
+import User from "../models/User.js";
 
 export const updateCart = async (req, res) => {
   try {

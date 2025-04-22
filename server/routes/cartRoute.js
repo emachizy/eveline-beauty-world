@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
+import express from "express"; // ✅ Use express, not mongoose
 import authUser from "../middlewares/authUser.js";
 import { updateCart } from "../controllers/cartController.js";
 
-const cartRouter = mongoose.Router(
-  cartRouter.post("/update", authUser, updateCart)
-);
+const cartRouter = express.Router(); // ✅ Correctly initialize Router
+
+cartRouter.post("/update", authUser, updateCart);
 
 export default cartRouter;
