@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
 const authUser = async (req, res, next) => {
   const { token } = req.cookies;
@@ -9,8 +10,9 @@ const authUser = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findOne({ email: decoded.email });
     if (decoded.id) {
-      req.userId = decoded.id;
+      req.user = { userId: decoded.id };
     } else {
       return res.json({ success: false, message: "Not Authorized" });
     }

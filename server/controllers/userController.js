@@ -91,9 +91,16 @@ export const login = async (req, res) => {
 // Check Auth : /api/user/is-auth
 export const isAuth = async (req, res) => {
   try {
-    // const { userId } = req.userId;
-
-    const user = await User.findById(req.userId).select("-password");
+    if (!req.user) {
+      return res.status(401).json({ success: false, message: "Unauthorized" });
+    }
+    const { userId } = req.user;
+    const user = await User.findById(userId).select("-password");
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
     return res.json({ success: true, user });
   } catch (error) {
     console.log(error.message);
