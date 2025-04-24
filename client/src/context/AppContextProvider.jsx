@@ -38,15 +38,18 @@ export const AppContextProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       const { data } = await axios.get("/api/user/is-auth");
-      if (data.success) {
+      // console.log("AUTH RESPONSE:", data);
+      if (data.success && data.user) {
         setUser(data.user);
-        setCartItems(data.user.cartItems);
+        setCartItems(data.user.cartItems || {});
       } else {
         setUser(null);
-        setCartItems(null);
+        setCartItems({});
       }
     } catch (error) {
+      toast.error(error.message);
       setUser(null);
+      setCartItems({});
     }
   };
 
@@ -162,6 +165,7 @@ export const AppContextProvider = ({ children }) => {
     getCartAmount,
     axios,
     fetchProducts,
+    setCartItems,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

@@ -18,8 +18,7 @@ const Login = () => {
         email,
         password,
       });
-      console.log(data.user);
-      console.log(data.user.cartItems);
+
       if (data.success) {
         navigate("/");
         setUser(data.user);

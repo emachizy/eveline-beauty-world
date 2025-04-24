@@ -10,10 +10,16 @@ export const placeOrderCOD = async (req, res) => {
       res.json({ success: false, message: "Invalid data" });
     }
     // calculate amount using items
-    let amount = items.reduce(async (acc, item) => {
+    let amount = 0;
+
+    for (const item of items) {
       const product = await Product.findById(item.product);
-      return (await acc) + product.offerPrice * item.quantity;
-    }, 0);
+      if (product) {
+        amount += product.offerPrice * item.quantity;
+      } else {
+        return res.json({ success: false, message: "Product not found" });
+      }
+    }
 
     // Add Tax charge (2%)
     amount += Math.floor(amount * 0.02);
@@ -34,7 +40,7 @@ export const placeOrderCOD = async (req, res) => {
 // Get orders by user Id : /api/order/user
 export const getUserOrders = async (req, res) => {
   try {
-    const { userId } = req.body;
+    const userId = req.user.userId;
     const orders = await Order.find({
       userId,
       $or: [{ paymentType: "COD" }, { isPaid: true }],

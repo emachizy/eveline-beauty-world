@@ -6,6 +6,10 @@ const ProductCard = ({ product }) => {
   const { currency, addToCart, removeFromCart, cartItems, navigate } =
     useAppContext();
 
+  if (!product || !product.name || !product.image || !product.image.length) {
+    return null; // or show fallback
+  }
+
   return (
     product && (
       <div
@@ -57,7 +61,7 @@ const ProductCard = ({ product }) => {
               }}
               className="text-primary"
             >
-              {!cartItems[product._id] ? (
+              {!cartItems?.[product._id || 0] ? (
                 <button
                   className="flex items-center justify-center gap-1 bg-primary/10 border border-primary/40 md:w-[80px] w-[64px] h-[34px] rounded text-primary cursor-pointer"
                   onClick={() => addToCart(product._id)}

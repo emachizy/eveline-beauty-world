@@ -31,13 +31,29 @@ const ProductDetails = () => {
   return (
     product && (
       <div className="mt-12">
-        <p>
-          <Link to={"/"}>Home</Link> /<Link to={"/products"}> Products</Link> /
+        <p className="flex items-center">
+          <Link to={"/"}>Home</Link>{" "}
+          <img
+            src={assets.greater_than}
+            alt="bread crumbs icon"
+            className=" h-3"
+          />
+          <Link to={"/products"}> Products</Link>{" "}
+          <img
+            src={assets.greater_than}
+            alt="bread crumbs icon"
+            className=" h-3"
+          />
           <Link to={`/products/${product.category.toLowerCase()}`}>
             {" "}
             {product.category}
           </Link>{" "}
-          /<span className="text-primary"> {product.name}</span>
+          <img
+            src={assets.greater_than}
+            alt="bread crumbs icon"
+            className=" h-3"
+          />
+          <span className="text-primary"> {product.name}</span>
         </p>
 
         <div className="flex flex-col md:flex-row gap-16 mt-4">
