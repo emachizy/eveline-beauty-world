@@ -77,14 +77,18 @@ const Cart = () => {
         }
       } else if (paymentOption === "Online") {
         // Online payment logic
-        const { data } = await axios.post("/api/order/paystack", {
-          userId: user._id,
-          items: cartArray.map((item) => ({
-            product: item._id,
-            quantity: item.quantity,
-          })),
-          address: selectedAddress._id,
-        });
+        const { data } = await axios.post(
+          "/api/order/paystack",
+          {
+            userId: user._id,
+            items: cartArray.map((item) => ({
+              product: item._id,
+              quantity: item.quantity,
+            })),
+            address: selectedAddress._id,
+          },
+          { withCredentials: true }
+        );
         if (data.success) {
           // Redirect to Paystack payment page
           window.location.href = data.authorization_url;

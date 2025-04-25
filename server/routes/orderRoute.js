@@ -13,7 +13,7 @@ const orderRouter = express.Router();
 
 orderRouter.post("/cod", authUser, placeOrderCOD);
 orderRouter.get("/user", authUser, getUserOrders);
-orderRouter.get("/api/order/paystack", placeOrderPayStack);
+orderRouter.post("/paystack", authUser, placeOrderPayStack);
 orderRouter.get("/verify-paystack", verifyPaystackPayment);
 orderRouter.get("/seller", authSeller, getAllOrders);
 
