@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const {
     user,
     setUser,
@@ -37,23 +38,24 @@ const Navbar = () => {
       navigate("/products");
     }
   }, [searchQuery]);
+
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
       <NavLink to="/" onClick={() => setOpen(false)}>
         <img
-          className="h-14 rounded"
+          className="h-14 rounded hidden md:flex"
           src={assets.logo}
           alt="dummyLogoColored"
         />
       </NavLink>
 
       {/* Desktop Menu */}
-      <div className="hidden sm:flex items-center gap-8">
+      <div className="hidden md:max-lg:text-xs md:max-lg:gap-4 sm:flex items-center gap-8">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/products">All Product</NavLink>
         <NavLink to="/contact">Contact</NavLink>
 
-        <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
+        <div className="md:max-lg:flex lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
           <input
             onChange={(e) => setSearchQuery(e.target.value)}
             className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"
@@ -108,24 +110,51 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      <div className="flex items-center gap-10 sm:hidden">
-        <div
-          onClick={() => navigate("/cart")}
-          className="relative cursor-pointer"
-        >
-          <img src={assets.nav_cart_icon} alt="cart" className="w-9 h-9" />
-          <button className="absolute -top-2 -right-3 text-xs text-white bg-primary/60 w-[18px] h-[18px] rounded-full">
-            {getCartCount()}
-          </button>
-        </div>
-        <button
-          onClick={() => (open ? setOpen(false) : setOpen(true))}
-          aria-label="Menu"
-          className="cursor-pointer"
-        >
-          {/* Menu Icon  */}
-          <img src={assets.menu_icon} alt="menu icon" />
-        </button>
+
+      {/* Mobile View */}
+      <div className="sm:hidden flex items-center justify-between w-full">
+        <NavLink to="/" onClick={() => setOpen(false)}>
+          <img
+            className="h-14 rounded"
+            src={assets.logo}
+            alt="dummyLogoColored"
+          />
+        </NavLink>
+        {isSearchExpanded ? (
+          <div className="flex items-center flex-grow ml-2 border border-gray-300 rounded-full px-2">
+            <input
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-grow py-1.5 bg-transparent outline-none placeholder-gray-500"
+              type="text"
+              placeholder="Search products"
+            />
+            <button onClick={() => setIsSearchExpanded(false)}>
+              <img src={assets.close_icon} alt="close" className="w-4 h-4" />
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-8">
+            <button onClick={() => setIsSearchExpanded(true)}>
+              <img src={assets.search_icon} alt="search" className="w-4 h-4" />
+            </button>
+            <div
+              onClick={() => navigate("/cart")}
+              className="relative cursor-pointer"
+            >
+              <img src={assets.nav_cart_icon} alt="cart" className="w-9 h-9" />
+              <button className="absolute -top-2 -right-3 text-xs text-white bg-primary/60 w-[18px] h-[18px] rounded-full">
+                {getCartCount()}
+              </button>
+            </div>
+            <button
+              onClick={() => setOpen(!open)}
+              aria-label="Menu"
+              className="cursor-pointer"
+            >
+              <img src={assets.menu_icon} alt="menu icon" />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Mobile Menu */}
@@ -133,7 +162,7 @@ const Navbar = () => {
         <div
           className={`${
             open ? "flex" : "hidden"
-          } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden z-40`}
+          } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-4 px-5 text-sm md:hidden z-40`}
         >
           <NavLink to="/" onClick={() => setOpen(false)}>
             Home

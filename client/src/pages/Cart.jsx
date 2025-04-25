@@ -58,8 +58,8 @@ const Cart = () => {
       if (!selectedAddress) {
         return toast.error("Please select an address");
       }
-      // place order with COD
       if (paymentOption === "COD") {
+        // Existing COD logic
         const { data } = await axios.post("/api/order/cod", {
           userId: user._id,
           items: cartArray.map((item) => ({
@@ -72,6 +72,22 @@ const Cart = () => {
           toast.success(data.message);
           setCartItems({});
           navigate("/my-orders");
+        } else {
+          toast.error(data.message);
+        }
+      } else if (paymentOption === "Online") {
+        // Online payment logic
+        const { data } = await axios.post("/api/order/paystack", {
+          userId: user._id,
+          items: cartArray.map((item) => ({
+            product: item._id,
+            quantity: item.quantity,
+          })),
+          address: selectedAddress._id,
+        });
+        if (data.success) {
+          // Redirect to Paystack payment page
+          window.location.href = data.authorization_url;
         } else {
           toast.error(data.message);
         }

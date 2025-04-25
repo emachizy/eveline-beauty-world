@@ -1,8 +1,10 @@
-// Place Order COD : /api/order/cod
-
 import { Order } from "../models/Order.js";
 import Product from "../models/product.js";
+import paystack from "paystack-api";
+import User from "../models/User.js";
+const Paystack = paystack(process.env.PAYSTACK_SECRET_KEY);
 
+// Place Order COD : /api/order/cod
 export const placeOrderCOD = async (req, res) => {
   try {
     const { userId, items, address } = req.body;
@@ -34,6 +36,88 @@ export const placeOrderCOD = async (req, res) => {
   } catch (error) {
     console.log(error.message);
     res.json({ success: false, message: error.message });
+  }
+};
+
+// Place Order Paystack : /api/order/paystack
+export const placeOrderPayStack = async (req, res) => {
+  try {
+    const { userId, items, address } = req.body;
+    const { origin } = req.headers;
+
+    if (!address || items.length === 0) {
+      return res.json({ success: false, message: "Invalid data" });
+    }
+
+    // Fetch user email for Paystack
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+    const email = user.email;
+
+    // Calculate amount in naira, including 2% tax
+    let amount = 0;
+    for (const item of items) {
+      const product = await Product.findById(item.product);
+      if (product) {
+        amount += product.offerPrice * item.quantity;
+      } else {
+        return res.json({ success: false, message: "Product not found" });
+      }
+    }
+    amount += Math.floor(amount * 0.02); // Add 2% tax
+
+    // Create order with isPaid: false
+    const order = await Order.create({
+      userId,
+      items,
+      amount,
+      address,
+      paymentType: "Online",
+      isPaid: false,
+    });
+
+    // Initialize Paystack transaction
+    const transaction = await Paystack.transaction.initialize({
+      amount: amount * 100, // Convert to kobo for NGN
+      email,
+      currency: "NGN",
+      callback_url: `${origin}/api/order/verify-paystack`,
+      metadata: { orderId: order._id.toString() },
+    });
+
+    return res.json({
+      success: true,
+      authorization_url: transaction.data.authorization_url,
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export const verifyPaystackPayment = async (req, res) => {
+  try {
+    const { reference } = req.query;
+    if (!reference) {
+      return res.status(400).json({ message: "No reference provided" });
+    }
+
+    // Verify transaction with Paystack
+    const transaction = await Paystack.transaction.verify(reference);
+    if (transaction.data.status === "success") {
+      const orderId = transaction.data.metadata.orderId;
+      await Order.findByIdAndUpdate(orderId, { isPaid: true });
+      // Redirect to success page
+      res.redirect("/order-success");
+    } else {
+      // Handle failure
+      res.redirect("/order-failure");
+    }
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ message: error.message });
   }
 };
 

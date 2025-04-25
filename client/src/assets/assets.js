@@ -32,6 +32,7 @@ import product_list_icon from "../assets/product_list_icon.svg";
 import upload_area from "../assets/upload_area.png";
 import box_icon from "../assets/box_icon.svg";
 import greater_than from "../assets/greater-than.png";
+import close_icon from "../assets/close_icon.svg";
 
 export const assets = {
   logo,
@@ -57,6 +58,7 @@ export const assets = {
   upload_area,
   box_icon,
   greater_than,
+  close_icon,
 };
 
 export const categories = [
