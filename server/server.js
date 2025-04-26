@@ -12,16 +12,10 @@ import addressRouter from "./routes/addressRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 
 const app = express();
-const port = process.env.PORT || 4000;
-
-// Connect to DB
-
-await connectDB();
-await connectCloudinary();
 
 // Middleware
-app.use(express.json()); // ✅ Parses JSON bodies
-app.use(cookieParser()); // ✅ Parses cookies
+app.use(express.json());
+app.use(cookieParser());
 
 const allowedOrigins = ["http://localhost:5173"];
 app.use(
@@ -40,14 +34,25 @@ app.use("/api/cart", cartRouter);
 app.use("/api/address", addressRouter);
 app.use("/api/order", orderRouter);
 
-// Start server
+// Flag to ensure we connect only once
+let isConnected = false;
+
+// For local development
 if (process.env.NODE_ENV !== "production") {
   const port = process.env.PORT || 4000;
-  app.listen(port, () => {
+  app.listen(port, async () => {
     console.log(`🚀 Server running on http://localhost:${port}`);
+    await connectDB();
+    await connectCloudinary();
   });
 }
 
-export default function handler(req, res) {
+// For Vercel Serverless
+export default async function handler(req, res) {
+  if (!isConnected) {
+    await connectDB();
+    await connectCloudinary();
+    isConnected = true;
+  }
   return app(req, res);
 }
