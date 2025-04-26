@@ -41,6 +41,11 @@ app.use("/api/address", addressRouter);
 app.use("/api/order", orderRouter);
 
 // Start server
-app.listen(port, () => {
-  console.log(`🚀 Server running on http://localhost:${port}`);
-});
+if (process.env.NODE_ENV !== "production") {
+  const port = process.env.PORT || 4000;
+  app.listen(port, () => {
+    console.log(`🚀 Server running on http://localhost:${port}`);
+  });
+}
+
+export default app;
