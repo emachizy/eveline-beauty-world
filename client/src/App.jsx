@@ -8,7 +8,7 @@ import { useAppContext } from "./context/useAppContext";
 import Login from "./components/Login";
 import AllProducts from "./pages/AllProducts";
 import ProductCategory from "./pages/ProductCategory";
-import ProductDetails from "./pages/Productdetails";
+import ProductDetails from "./pages/ProductDetails.jsx";
 import Cart from "./pages/Cart";
 import AddAddress from "./pages/AddAddress";
 import MyOrders from "./pages/MyOrders";
