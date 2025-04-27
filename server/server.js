@@ -16,6 +16,10 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
 
 const allowedOrigins = ["http://localhost:5173"];
 app.use(
@@ -49,10 +53,15 @@ if (process.env.NODE_ENV !== "production") {
 
 // For Vercel Serverless
 export default async function handler(req, res) {
-  if (!isConnected) {
-    await connectDB();
-    await connectCloudinary();
-    isConnected = true;
+  try {
+    if (!isConnected) {
+      await connectDB();
+      await connectCloudinary();
+      isConnected = true;
+    }
+    return app(req, res);
+  } catch (error) {
+    console.error("Error in handler:", error);
+    res.status(500).send("Internal Server Error");
   }
-  return app(req, res);
 }
