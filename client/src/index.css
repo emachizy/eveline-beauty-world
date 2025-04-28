@@ -6,6 +6,10 @@
   font-family: "Outfit", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @theme {
   --color-primary: #050;
   --color-secondary: #fc0;
