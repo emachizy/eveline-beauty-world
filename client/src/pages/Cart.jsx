@@ -16,6 +16,7 @@ const Cart = () => {
     axios,
     user,
     setCartItems,
+    setShowUserLogin,
   } = useAppContext();
 
   const [cartArray, setCartArray] = useState([]);
@@ -95,6 +96,21 @@ const Cart = () => {
         } else {
           toast.error(data.message);
         }
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  const handleAddAddress = async () => {
+    try {
+      if (user) {
+        navigate("/add-address");
+      } else {
+        toast.error("You need to login or register");
+
+        navigate("/login");
+        setShowUserLogin(true);
       }
     } catch (error) {
       toast.error(error.message);
@@ -246,7 +262,7 @@ const Cart = () => {
                   </p>
                 ))}
                 <p
-                  onClick={() => navigate("/add-address")}
+                  onClick={handleAddAddress}
                   className="text-primary text-center cursor-pointer p-2 hover:bg-indigo-500/10"
                 >
                   Add address
