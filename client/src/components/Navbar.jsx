@@ -40,12 +40,12 @@ const Navbar = () => {
   }, [searchQuery]);
 
   return (
-    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
+    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 border-b border-gray-300 bg-white fixed w-full top-0 z-50 transition-all shadow-md">
       <NavLink to="/" onClick={() => setOpen(false)}>
         <img
-          className="h-14 rounded hidden md:flex"
+          className="h-24 rounded hidden md:flex"
           src={assets.logo}
-          alt="dummyLogoColored"
+          alt="Logo"
         />
       </NavLink>
 
@@ -115,7 +115,7 @@ const Navbar = () => {
       <div className="sm:hidden flex items-center justify-between w-full">
         <NavLink to="/" onClick={() => setOpen(false)}>
           <img
-            className="h-14 rounded"
+            className="h-20 rounded"
             src={assets.logo}
             alt="dummyLogoColored"
           />
@@ -133,7 +133,7 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-3">
             <button onClick={() => setIsSearchExpanded(true)}>
               <img src={assets.search_icon} alt="search" className="w-4 h-4" />
             </button>
