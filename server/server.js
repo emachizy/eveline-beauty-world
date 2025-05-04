@@ -13,7 +13,7 @@ import orderRouter from "./routes/orderRoute.js";
 
 const app = express();
 
-// Middlewares
+// Middleware
 app.use(express.json());
 app.use(cookieParser());
 app.use(
@@ -35,35 +35,19 @@ app.use("/api/cart", cartRouter);
 app.use("/api/address", addressRouter);
 app.use("/api/order", orderRouter);
 
-// Connect DB and Cloudinary once
-let isConnected = false;
+// Start the server (Railway needs this)
+const PORT = process.env.PORT || 4000;
 
-// Local Development (starts server normally)
-if (process.env.NODE_ENV !== "production") {
-  const port = process.env.PORT || 4000;
-  app.listen(port, async () => {
-    console.log(`🚀 Server running locally on http://localhost:${port}`);
-    if (!isConnected) {
-      await connectDB();
-      await connectCloudinary();
-      isConnected = true;
-    }
-  });
-}
-
-// Serverless function export for Vercel
-const handler = async (req, res) => {
+const startServer = async () => {
   try {
-    if (!isConnected) {
-      await connectDB();
-      await connectCloudinary();
-      isConnected = true;
-    }
-    return app(req, res);
+    await connectDB();
+    await connectCloudinary();
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
+    });
   } catch (error) {
-    console.error("Error in Vercel handler:", error);
-    res.status(500).send("Internal Server Error");
+    console.error("❌ Failed to start server:", error);
   }
 };
 
-export default handler;
+startServer();
