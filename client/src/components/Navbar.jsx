@@ -177,6 +177,12 @@ const Navbar = () => {
               My Orders
             </NavLink>
           )}
+          <NavLink to="/booking" onClick={() => setOpen(false)}>
+            Booking
+          </NavLink>
+          <NavLink to="/about" onClick={() => setOpen(false)}>
+            About
+          </NavLink>
           <NavLink to="/" onClick={() => setOpen(false)}>
             Contact
           </NavLink>

@@ -3,9 +3,9 @@ import ServiceCard from "../components/ServiceCard";
 import { servicesData } from "../assets/assets";
 // import servicesData from "../data/servicesData";
 
-const OurServices = () => {
+const Services = () => {
   return (
-    <div className="max-w-7xl mx-auto py-10">
+    <div className="max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
         Our Services
       </h2>
@@ -23,4 +23,4 @@ const OurServices = () => {
   );
 };
 
-export default OurServices;
+export default Services;

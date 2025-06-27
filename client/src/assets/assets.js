@@ -33,6 +33,10 @@ import upload_area from "../assets/upload_area.png";
 import box_icon from "../assets/box_icon.svg";
 import greater_than from "../assets/greater-than.png";
 import close_icon from "../assets/close_icon.svg";
+import massage_therapy from "../assets/massage-therapy.webp";
+import facial_treatment from "../assets/facial-treatment.webp";
+import nails from "../assets/nail-art.webp";
+import makeup from "../assets/makeup.webp";
 
 export const assets = {
   logo,
@@ -520,5 +524,33 @@ export const dummyOrders = [
     isPaid: false,
     createdAt: "2025-03-25T07:17:13.068Z",
     updatedAt: "2025-03-25T07:17:13.068Z",
+  },
+];
+
+export const servicesData = [
+  {
+    id: 1,
+    name: "Facial Treatment",
+    description: "Restore your glow with our personalized facial sessions.",
+    image: facial_treatment,
+  },
+  {
+    id: 2,
+    name: "Nail Art",
+    description:
+      "Custom nail designs and spa pedicures to pamper your hands & feet.",
+    image: nails,
+  },
+  {
+    id: 3,
+    name: "Massage Therapy",
+    description: "Unwind with soothing massages from our certified therapists.",
+    image: massage_therapy,
+  },
+  {
+    id: 4,
+    name: "Makeup Session",
+    description: "Get a flawless look for weddings, shoots or everyday glam.",
+    image: makeup,
   },
 ];

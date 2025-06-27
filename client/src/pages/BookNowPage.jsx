@@ -56,7 +56,7 @@ const BookNowPage = () => {
             key={index}
             className={`text-sm font-semibold ${
               index === currentStep
-                ? "text-pink-600"
+                ? "text-primary"
                 : index < currentStep
                 ? "text-green-500"
                 : "text-gray-400"

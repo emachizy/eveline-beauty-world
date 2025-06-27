@@ -90,7 +90,7 @@ const TimeStep = ({ formData, setFormData, onContinue }) => {
 
       <button
         type="submit"
-        className="mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded"
+        className="mt-4 w-full bg-primary hover:bg-primary/70 text-white py-2 px-4 rounded"
       >
         Continue
       </button>
