@@ -554,3 +554,30 @@ export const servicesData = [
     image: makeup,
   },
 ];
+
+export const teamData = [
+  {
+    id: 1,
+    name: "Favour Elegance",
+    role: "Senior Hair Stylist",
+    image: "/images/team/favour.jpg",
+  },
+  {
+    id: 2,
+    name: "Ana Radiance",
+    role: "Massage Therapist",
+    image: "/images/team/ana.jpg",
+  },
+  {
+    id: 3,
+    name: "Zara Nails",
+    role: "Nail Technician",
+    image: "/images/team/zara.jpg",
+  },
+  {
+    id: 4,
+    name: "Lola Luxe",
+    role: "Makeup Artist",
+    image: "/images/team/lola.jpg",
+  },
+];

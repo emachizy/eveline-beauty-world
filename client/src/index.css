@@ -13,8 +13,15 @@ body {
 @theme {
   --color-primary: #050;
   --color-secondary: #fc0;
+  --header-small: cursive;
 }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.about-title,
+.services-title {
+  font-family: cursive;
+  /* font-style: italic; */
 }

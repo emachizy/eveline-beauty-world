@@ -19,7 +19,9 @@ const OurServices = () => {
 
       {/* Foreground content */}
       <div className="relative z-10 max-w-7xl mx-auto py-10 px-4">
-        <p className="text-xs text-center text-white mb-1">Our Services</p>
+        <p className="services-title text-xs text-center text-white mb-1">
+          Our Services
+        </p>
         <h1 className="text-3xl md:text-5xl font-bold text-center text-white mb-6">
           Explore Our Beauty Services
         </h1>
