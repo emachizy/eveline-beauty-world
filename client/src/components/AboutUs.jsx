@@ -2,11 +2,14 @@ import React from "react";
 import SpotlightCard from "./SpotlightCard";
 import BookNowButton from "./BookNowButton";
 import { assets } from "../assets/assets";
-import { Link } from "react-router-dom";
+
+import { useAppContext } from "../context/useAppContext";
 
 const AboutUs = () => {
+  const { navigate } = useAppContext();
+
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-lg mt-16">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-lg mt-16 relative z-10 mb-0 md:mb-10">
       <div className="container text-center md:text-left flex flex-col items-center justify-center">
         <h2 className="text-xs font-bold mb-2">About Us</h2>
         <h1 className="md:text-6xl text-2xl font-bold text-primary mb-2">
@@ -22,7 +25,11 @@ const AboutUs = () => {
           Join us on this beautiful journey and experience the magic of Eveline
           Beauty World!
         </p>
-        <Link
+        <button
+          onClick={() => {
+            navigate("/about");
+            window.scrollTo(0, 0);
+          }}
           to="/about"
           className="group flex items-center gap-2 px-7 md:px-9 py-3 transition rounded text-black cursor-pointer"
         >
@@ -32,7 +39,7 @@ const AboutUs = () => {
             alt=""
             className="transition group-hover:translate-x-1 text-white h-8"
           />
-        </Link>
+        </button>
       </div>
       <div className="flex flex-col items-center justify-center">
         <SpotlightCard
