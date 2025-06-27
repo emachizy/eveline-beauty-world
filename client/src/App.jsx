@@ -20,6 +20,8 @@ import ProductList from "./pages/seller/ProductList";
 import Orders from "./pages/seller/Orders";
 import OrderSuccess from "./pages/OrderSuccess";
 import OrderFailure from "./pages/OrderFailure";
+import About from "./pages/About.jsx";
+import BookNowPage from "./pages/BookNowPage.jsx";
 
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
@@ -37,7 +39,9 @@ const App = () => {
       >
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/products" element={<AllProducts />} />
+          <Route path="/booking" element={<BookNowPage />} />
           <Route path="/products/:category" element={<ProductCategory />} />
           <Route path="/products/:category/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
@@ -56,7 +60,7 @@ const App = () => {
             />
             <Route path="orders" element={isSeller ? <Orders /> : null} />
           </Route>
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       {!isSellerPath && <Footer />}

@@ -53,6 +53,8 @@ const Navbar = () => {
       <div className="hidden md:max-lg:text-xs md:max-lg:gap-4 sm:flex items-center gap-8">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/products">All Product</NavLink>
+        <NavLink to="/booking">Booking</NavLink>
+        <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact</NavLink>
 
         <div className="md:max-lg:flex lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
