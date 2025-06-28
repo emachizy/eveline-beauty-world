@@ -40,7 +40,7 @@ const Navbar = () => {
   }, [searchQuery]);
 
   return (
-    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 border-b border-gray-300 bg-white fixed w-full top-0 z-50 transition-all shadow-md">
+    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 border-b border-gray-300 bg-white/90 fixed w-full top-0 z-50 transition-all shadow-md">
       <NavLink to="/" onClick={() => setOpen(false)}>
         <img
           className="h-24 rounded hidden md:flex"
@@ -164,7 +164,7 @@ const Navbar = () => {
         <div
           className={`${
             open ? "flex" : "hidden"
-          } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-4 px-5 text-sm md:hidden z-40`}
+          } absolute top-[60px] left-0 w-full bg-white shadow-md py-6 flex-col items-start gap-8 px-5 text-xl md:hidden z-40`}
         >
           <NavLink to="/" onClick={() => setOpen(false)}>
             Home
@@ -183,7 +183,7 @@ const Navbar = () => {
           <NavLink to="/about" onClick={() => setOpen(false)}>
             About
           </NavLink>
-          <NavLink to="/" onClick={() => setOpen(false)}>
+          <NavLink to="/contact" onClick={() => setOpen(false)}>
             Contact
           </NavLink>
 
@@ -193,7 +193,7 @@ const Navbar = () => {
                 setOpen(false);
                 setShowUserLogin(true);
               }}
-              className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-secondary transition text-white rounded-full text-sm"
+              className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-secondary transition text-white rounded-2xl text-md"
             >
               Login
             </button>

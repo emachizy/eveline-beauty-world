@@ -22,13 +22,14 @@ import OrderSuccess from "./pages/OrderSuccess";
 import OrderFailure from "./pages/OrderFailure";
 import About from "./pages/About.jsx";
 import BookNowPage from "./pages/BookNowPage.jsx";
+import Contact from "./pages/Contact.jsx";
 
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
   const { showUserLogin, isSeller } = useAppContext();
 
   return (
-    <div className="text-default min-h-screen text-gray-700 bg-white">
+    <div className="text-default min-h-screen text-gray-700">
       {isSellerPath ? null : <Navbar />}
       {showUserLogin ? <Login /> : null}
 
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/booking" element={<BookNowPage />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/products/:category" element={<ProductCategory />} />
           <Route path="/products/:category/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
