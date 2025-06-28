@@ -2,16 +2,18 @@ import React from "react";
 import TeamCard from "../components/TeamCard";
 import { teamData } from "../assets/assets";
 import dero from "../assets/dero.jpg";
+import LazyImage from "../components/LazyLoading";
 
 const About = () => {
   return (
     <div className="max-w-6xl mx-auto py-10 space-y-16 mt-28">
       {/* CEO Section */}
       <section className="flex flex-col md:flex-row items-center gap-10">
-        <img
+        <LazyImage
           src={dero}
           alt="CEO"
-          className="w-48 h-48 object-cover rounded-full border-4 border-pink-300"
+          className={`w-56 h-56 md:w-80 object-cover rounded-ful md:rounded border-4 border-pink-300 relative -z-50`}
+          style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)" }}
         />
         <div>
           <h2 className="text-3xl font-bold text-gray-800 mb-2">

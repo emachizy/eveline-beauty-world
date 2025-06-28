@@ -1,9 +1,10 @@
 import React from "react";
+import LazyImage from "./LazyLoading";
 
 const TeamCard = ({ name, role, image }) => {
   return (
     <div className="bg-white rounded shadow p-4 text-center hover:shadow-md transition">
-      <img
+      <LazyImage
         src={image}
         alt={name}
         className="w-24 h-24 mx-auto rounded-full object-cover mb-3"

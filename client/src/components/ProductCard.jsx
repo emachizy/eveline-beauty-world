@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import { assets } from "../assets/assets";
 import { useAppContext } from "../context/useAppContext";
+import LazyImage from "./LazyLoading";
 
 const ProductCard = ({ product }) => {
   const { currency, addToCart, removeFromCart, cartItems, navigate } =
@@ -22,7 +23,7 @@ const ProductCard = ({ product }) => {
         className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white w-full"
       >
         <div className="group cursor-pointer flex items-center justify-center">
-          <img
+          <LazyImage
             className="group-hover:scale-105 transition w-full"
             src={product.image[0]}
             alt={product.name}

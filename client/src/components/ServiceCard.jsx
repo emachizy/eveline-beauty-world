@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import LazyImage from "./LazyLoading";
 
 const ServiceCard = ({ name, description, image }) => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const ServiceCard = ({ name, description, image }) => {
     <div className="bg-white/70 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 flex flex-col justify-between">
       <div>
         <div className="relative group w-full h-48 overflow-hidden">
-          <img
+          <LazyImage
             src={image}
             alt={name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

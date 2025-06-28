@@ -23,6 +23,7 @@ import OrderFailure from "./pages/OrderFailure";
 import About from "./pages/About.jsx";
 import BookNowPage from "./pages/BookNowPage.jsx";
 import Contact from "./pages/Contact.jsx";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
@@ -38,6 +39,7 @@ const App = () => {
       <div
         className={`${isSellerPath ? "" : "px-6 md:px-16 lg:px-24 xl:px-32"}`}
       >
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
