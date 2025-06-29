@@ -11,9 +11,9 @@ const AboutUs = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-lg mt-16 relative z-10 mb-0 md:mb-10 md:px-16 lg:px-24 xl:px-32">
       <div className="container text-center md:text-left flex flex-col items-center justify-center">
-        <h2 className="about-title text-xs font-bold mb-2 text-secondary">
+        <p className="about-title text-xs font-bold mb-2 text-secondary">
           About Us
-        </h2>
+        </p>
         <h1 className="md:text-6xl text-2xl font-bold text-primary mb-2 font-(family-name:cursive)">
           Eveline Beauty World
         </h1>

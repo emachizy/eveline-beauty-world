@@ -8,6 +8,7 @@ import NewsLetter from "../components/NewsLetter";
 import BookNowForm from "../components/BookNowButton";
 import OurServices from "../components/OurServices";
 import AboutUs from "../components/AboutUs";
+import { InfiniteTestimonials } from "../components/InfiniteTestimonials";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 50 },
@@ -40,6 +41,10 @@ const Home = () => {
 
       <motion.div {...fadeInUp}>
         <BottomBanner />
+      </motion.div>
+
+      <motion.div {...fadeInUp}>
+        <InfiniteTestimonials />
       </motion.div>
 
       <motion.div {...fadeInUp}>
