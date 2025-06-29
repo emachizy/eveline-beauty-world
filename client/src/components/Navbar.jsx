@@ -40,7 +40,7 @@ const Navbar = () => {
   }, [searchQuery]);
 
   return (
-    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 border-b border-gray-300 bg-white/90 fixed w-full top-0 z-50 transition-all shadow-md">
+    <nav className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 border-b border-gray-300 bg-white/90 fixed w-full top-0 z-50 transition-all shadow-md">
       <NavLink to="/" onClick={() => setOpen(false)}>
         <img
           className="h-24 rounded hidden md:flex"
@@ -207,6 +207,12 @@ const Navbar = () => {
           )}
         </div>
       )}
+      <div class="w-full flex gap-4 justify-center items-center lg:hidden py-2.5 font-medium text-sm text-black text-center bg-secondary rounded-full">
+        <p className="font-semibold">📞 CALL TO BOOK</p>
+        <a href="tel:+2347066743178" className="text-md">
+          +234-706-674-3178
+        </a>
+      </div>
     </nav>
   );
 };

@@ -7,7 +7,7 @@ const OurServices = () => {
   return (
     <div className="relative w-full min-h-[600px]">
       {/* Background layer */}
-      <div className="absolute inset-0 z-0 -mt-20 md:mt-0">
+      <div className="absolute inset-0 z-0 -mt-28 md:mt-0">
         <LiquidChrome
           baseColor={[0.1, 0.3, 0.1]}
           speed={0.02}
