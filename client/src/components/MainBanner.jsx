@@ -1,16 +1,17 @@
 import React from "react";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
+import LazyImage from "./LazyLoading";
 
 const MainBanner = () => {
   return (
     <div className="relative">
-      <img
+      <LazyImage
         src={assets.main_banner_bg}
         alt="banner"
         className="w-full hidden md:block h-96 object-cover opacity-70"
       />
-      <img
+      <LazyImage
         src={assets.main_banner_bg_sm}
         alt="banner"
         className="w-full md:hidden h-96 object-cover opacity-70"
@@ -26,7 +27,7 @@ const MainBanner = () => {
             className="group flex items-center gap-2 px-7 md:px-9 py-3 bg-primary hover:bg-primary/80 transition rounded text-white cursor-pointer"
           >
             Shop now
-            <img
+            <LazyImage
               src={assets.right_arrow_white}
               alt=""
               className="md:hidden transition group-hover:translate-x-1 text-white h-8 align-middle"
@@ -37,7 +38,7 @@ const MainBanner = () => {
             className="group md:flex hidden items-center gap-2 px-9 py-3 cursor-pointer"
           >
             Explore Deals
-            <img
+            <LazyImage
               src={assets.right_arrow}
               alt=""
               className="h-8 transition group-hover:translate-x-1"

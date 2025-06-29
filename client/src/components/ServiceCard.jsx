@@ -31,7 +31,7 @@ const ServiceCard = ({ name, description, image }) => {
       <div className="p-4 pt-0">
         <button
           onClick={handleBookNow}
-          className="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary/80 transition duration-300"
+          className="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary/80 transition duration-300 cursor-pointer"
         >
           Book Now
         </button>

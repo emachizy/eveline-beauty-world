@@ -87,7 +87,7 @@ const Contact = () => {
         xGap={12}
         yGap={36}
       /> */}
-      <div className="relative w-full max-w-[95vw] mx-auto my-10 rounded-4xl pt-10 pb-24">
+      <div className="relative w-full mx-auto my-10 rounded-4xl pt-10 pb-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ const Contact = () => {
           <p className="text-gray-500 text-xs md:py-2">Get in touch</p>
         </motion.div>
 
-        <div className="md:px-16 px-4">
+        <div className="">
           <div className="mb-10">
             <iframe
               title="map"
