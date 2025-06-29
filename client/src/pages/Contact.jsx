@@ -116,7 +116,7 @@ const Contact = () => {
             ></iframe>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-8 md:px-16 lg:px-24 xl:px-32">
             <div className="space-y-6 text-gray-700">
               <div className="flex items-start gap-6">
                 <Phone className="text-primary" />

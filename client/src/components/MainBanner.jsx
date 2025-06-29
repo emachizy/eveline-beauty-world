@@ -9,11 +9,13 @@ const MainBanner = () => {
     <section>
       {/* Right-side floating boxes */}
       <div className="absolute top-1/2 right-4 transform -translate-y-1/2 space-y-3 hidden lg:block z-50">
-        <div className="bg-white shadow-md rounded px-4 py-2 text-sm text-gray-800 w-48">
-          <p className="font-semibold">📞 CALL TO BOOK</p>
-          <a href="tel:+2347066743178" className="text-xs">
-            +234-706-674-3178
-          </a>
+        <div className="bg-white shadow-md rounded px-2 py-2 text-sm text-gray-800 w-48">
+          <div className="bg-secondary px-4 py-2 text-gray-900 rounded">
+            <p className="font-semibold">CALL TO BOOK</p>
+            <a href="tel:+2347066743178" className="text-sm">
+              +234-706-674-3178
+            </a>
+          </div>
         </div>
         {/* <div className="bg-white shadow-md rounded px-4 py-2 text-sm text-gray-800 w-48">
           <p className="font-semibold">🛍️ Sell on Jumia</p>
