@@ -30,7 +30,7 @@ const ProductDetails = () => {
 
   return (
     product && (
-      <div className="mt-32">
+      <div className="mt-32 md:px-16 lg:px-24 xl:px-32">
         <p className="flex items-center">
           <Link to={"/"}>Home</Link>{" "}
           <img

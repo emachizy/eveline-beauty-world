@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { assets } from "../assets/assets";
+import { assets, categories } from "../assets/assets";
 import { useAppContext } from "../context/useAppContext";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
+
   const {
     user,
     setUser,
@@ -116,11 +118,7 @@ const Navbar = () => {
       {/* Mobile View */}
       <div className="sm:hidden flex items-center justify-between w-full">
         <NavLink to="/" onClick={() => setOpen(false)}>
-          <img
-            className="h-20 rounded"
-            src={assets.logo}
-            alt="dummyLogoColored"
-          />
+          <img className="h-20 rounded" src={assets.logo} alt="Logo" />
         </NavLink>
         {isSearchExpanded ? (
           <div className="flex items-center flex-grow ml-2 border border-gray-300 rounded-full px-2">
@@ -161,11 +159,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div
-          className={`${
-            open ? "flex" : "hidden"
-          } absolute top-[60px] left-0 w-full bg-white shadow-md py-6 flex-col items-start gap-8 px-5 text-xl md:hidden z-40`}
-        >
+        <div className="absolute top-[60px] left-0 w-full bg-white shadow-md py-6 flex-col items-start gap-8 px-5 text-xl md:hidden z-40 flex">
           <NavLink to="/" onClick={() => setOpen(false)}>
             Home
           </NavLink>
@@ -187,6 +181,30 @@ const Navbar = () => {
             Contact
           </NavLink>
 
+          {/* Categories Dropdown */}
+          <div className="w-full mt-4">
+            <button
+              onClick={() => setShowCategories(!showCategories)}
+              className="w-full text-left text-lg font-semibold text-primary mb-2"
+            >
+              {showCategories ? "Hide Categories ▲" : "Browse Categories ▼"}
+            </button>
+            {showCategories && (
+              <div className="flex flex-col gap-3 pl-4">
+                {categories.map((cat, index) => (
+                  <NavLink
+                    key={index}
+                    to={`/products/${cat.path.toLowerCase()}`}
+                    onClick={() => setOpen(false)}
+                    className="text-sm text-gray-700 hover:text-primary"
+                  >
+                    {cat.text}
+                  </NavLink>
+                ))}
+              </div>
+            )}
+          </div>
+
           {!user ? (
             <button
               onClick={() => {
@@ -207,7 +225,9 @@ const Navbar = () => {
           )}
         </div>
       )}
-      <div class="w-full flex gap-4 justify-center items-center lg:hidden py-2.5 font-medium text-sm text-black text-center bg-secondary rounded-full">
+
+      {/* Call to Book (Mobile Only) */}
+      <div className="w-full flex gap-4 justify-center items-center lg:hidden py-2.5 font-medium text-sm text-black text-center bg-secondary rounded-full">
         <p className="font-semibold">📞 CALL TO BOOK</p>
         <a href="tel:+2347066743178" className="text-md">
           +234-706-674-3178
